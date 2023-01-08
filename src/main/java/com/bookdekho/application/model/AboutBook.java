@@ -1,5 +1,6 @@
 package com.bookdekho.application.model;
 
+import com.bookdekho.application.enums.BookVersion;
 import com.bookdekho.application.enums.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Data;
