@@ -19,6 +19,7 @@ public class User {
     private Integer age;
     private UserType userType;
     private String email;
+    private String password;
     private String phoneNumber;
     private String authorId;
     private String readerId;

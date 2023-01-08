@@ -30,5 +30,4 @@ public class AboutBook {
     private String publishers;
     private Instant createdDate;
 
-
 }
