@@ -4,12 +4,14 @@ import com.bookdekho.application.enums.Genre;
 import com.bookdekho.application.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Author {
     @Id
     private String id;

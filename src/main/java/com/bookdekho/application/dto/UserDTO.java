@@ -4,10 +4,12 @@ import com.bookdekho.application.enums.UserType;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.NumberFormat;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserDTO {
 
     private String prefix;

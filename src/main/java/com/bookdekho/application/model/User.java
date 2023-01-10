@@ -3,10 +3,12 @@ package com.bookdekho.application.model;
 import com.bookdekho.application.enums.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id

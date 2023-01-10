@@ -4,6 +4,7 @@ import com.bookdekho.application.enums.BookVersion;
 import com.bookdekho.application.enums.Genre;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.time.Instant;
@@ -11,6 +12,7 @@ import java.util.Set;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class AboutBook {
     @Id
     private String id;

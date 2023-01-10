@@ -3,12 +3,14 @@ package com.bookdekho.application.model;
 import com.bookdekho.application.enums.BookVersion;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 
 import java.time.Instant;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class BookReview {
     @Id
     private String id;
