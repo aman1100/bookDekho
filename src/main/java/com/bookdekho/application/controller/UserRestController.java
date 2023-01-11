@@ -3,12 +3,9 @@ package com.bookdekho.application.controller;
 import com.bookdekho.application.dto.UserDTO;
 import com.bookdekho.application.model.User;
 import com.bookdekho.application.service.UserService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +15,7 @@ public class UserRestController{
 
     @Autowired
     private UserService userService;
-    private String USER_DELETED = "user deleted";
+    private static final String USER_DELETED = "user Deleted";
 
     @PostMapping(value = "/addUser")
     public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO){
@@ -26,16 +23,16 @@ public class UserRestController{
         return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping(value = "/update/{id}")
+    @PatchMapping(value = "/updateUser/{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable String userId, @RequestBody UserDTO userDTO){
         userDTO = userService.updateUser(userId, userDTO);
-        return new ResponseEntity<>(userDTO,HttpStatus.OK);
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "getUser/{id}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable String userId){
         UserDTO userDTO = userService.getUserById(userId);
-        return new ResponseEntity<>(userDTO,HttpStatus.OK);
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
     @GetMapping(value = "/getAllUsers")
@@ -48,6 +45,13 @@ public class UserRestController{
     @DeleteMapping(value = "/deleteUser/{id}")
     public ResponseEntity<String> deleteUser(@PathVariable String userId){
         userService.deleteUserById(userId);
-        return new ResponseEntity(USER_DELETED, HttpStatus.OK);
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(USER_DELETED);
+    }
+
+    @GetMapping(value = "/checkUserExists/{email}")
+    public ResponseEntity<Boolean> checkUserExists(@PathVariable String email){
+        Boolean userExists = userService.checkUserExists(email);
+        return new ResponseEntity<>(userExists, HttpStatus.OK);
     }
 }

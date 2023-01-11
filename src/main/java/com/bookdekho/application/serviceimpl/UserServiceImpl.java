@@ -1,4 +1,4 @@
-package com.bookdekho.application.serviceImpl;
+package com.bookdekho.application.serviceimpl;
 
 import com.bookdekho.application.dto.UserDTO;
 import com.bookdekho.application.exception.EntityNotFoundException;
@@ -7,11 +7,12 @@ import com.bookdekho.application.repository.UserRepository;
 import com.bookdekho.application.service.UserService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -52,5 +53,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUserById(String userId) {
         userRepository.deleteById(userId);
+    }
+
+    @Override
+    public Boolean checkUserExists(String email) {
+        return userRepository.existsByEmail(email);
     }
 }
