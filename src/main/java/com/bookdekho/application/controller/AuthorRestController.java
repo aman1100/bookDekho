@@ -48,10 +48,4 @@ public class AuthorRestController {
                 .body(AUTHOR_DELETED);
     }
 
-    @GetMapping(value = "/checkAuthorExists/{email}")
-    public ResponseEntity<Boolean> checkAuthorExists(@PathVariable String email){
-        Boolean authorExists = authorService.checkAuthorExists(email);
-        return new ResponseEntity<>(authorExists, HttpStatus.OK);
-    }
-
 }

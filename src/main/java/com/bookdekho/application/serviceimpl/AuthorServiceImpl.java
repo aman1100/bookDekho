@@ -55,8 +55,4 @@ public class AuthorServiceImpl implements AuthorService {
         authorRepository.deleteById(authorId);
     }
 
-    @Override
-    public Boolean checkAuthorExists(String email) {
-        return authorRepository.existsByEmail(email);
-    }
 }
