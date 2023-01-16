@@ -7,9 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Validated
 @RequestMapping(value = "/reader")
 public class ReaderRestController {
 
@@ -28,6 +30,7 @@ public class ReaderRestController {
         readerDTO = readerService.updateReader(readerId, readerDTO);
         return new ResponseEntity<>(readerDTO, HttpStatus.OK);
     }
+
     @GetMapping(value = "getReader/{id}")
     public ResponseEntity<ReaderDTO> getReaderById(@PathVariable String readerId){
         ReaderDTO readerDTO = readerService.getReaderById(readerId);

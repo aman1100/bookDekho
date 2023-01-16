@@ -7,12 +7,14 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Validated
 public class ReaderDTO {
 
     @NotNull(message = "Please enter user type")

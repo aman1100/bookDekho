@@ -28,6 +28,7 @@ public class AuthorRestController {
         authorDTO = authorService.updateAuthor(authorId, authorDTO);
         return new ResponseEntity<>(authorDTO, HttpStatus.OK);
     }
+
     @GetMapping(value = "getAuthor/{id}")
     public ResponseEntity<AuthorDTO> getAuthorById(@PathVariable String authorId){
         AuthorDTO authorDTO = authorService.getAuthorById(authorId);

@@ -5,11 +5,13 @@ import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.format.annotation.NumberFormat;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.Instant;
 
 @Data
 @AllArgsConstructor
+@Validated
 public class BookReviewDTO {
 
     @NotBlank(message = "Please enter aboutBook Id")

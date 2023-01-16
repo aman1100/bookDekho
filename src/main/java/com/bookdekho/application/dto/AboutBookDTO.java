@@ -9,12 +9,14 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.format.annotation.NumberFormat;
+import org.springframework.validation.annotation.Validated;
 
 import java.time.Instant;
 import java.util.Set;
 
 @Data
 @AllArgsConstructor
+@Validated
 public class AboutBookDTO {
 
     @NotBlank(message = "Please enter author Id")

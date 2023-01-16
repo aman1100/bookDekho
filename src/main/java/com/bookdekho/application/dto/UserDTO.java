@@ -6,10 +6,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.NumberFormat;
+import org.springframework.validation.annotation.Validated;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Validated
 public class UserDTO {
 
     private String prefix;
