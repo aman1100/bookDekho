@@ -29,8 +29,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO updateUser(String userId, UserDTO userDTO) {
-        User user = userRepository.findById(userId).orElseThrow(EntityNotFoundException :: new);
+    public UserDTO updateUser(UserDTO userDTO) {
+        User user = userRepository.findById(userDTO.getId()).orElseThrow(EntityNotFoundException :: new);
         BeanUtils.copyProperties(userDTO,user);
         userRepository.save(user);
         BeanUtils.copyProperties(user,userDTO);

@@ -12,6 +12,8 @@ import org.springframework.format.annotation.NumberFormat;
 @NoArgsConstructor
 public class UserDTO {
 
+    private String id;
+
     private String prefix;
 
     @NotEmpty

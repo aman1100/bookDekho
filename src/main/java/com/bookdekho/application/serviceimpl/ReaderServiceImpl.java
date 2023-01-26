@@ -28,8 +28,8 @@ public class ReaderServiceImpl implements ReaderService {
     }
 
     @Override
-    public ReaderDTO updateReader(String readerId, ReaderDTO readerDTO) {
-        Reader reader = readerRepository.findById(readerId).orElseThrow(EntityNotFoundException:: new);
+    public ReaderDTO updateReader(ReaderDTO readerDTO) {
+        Reader reader = readerRepository.findById(readerDTO.getId()).orElseThrow(EntityNotFoundException:: new);
         BeanUtils.copyProperties(readerDTO,reader);
         readerRepository.save(reader);
         BeanUtils.copyProperties(reader, reader);

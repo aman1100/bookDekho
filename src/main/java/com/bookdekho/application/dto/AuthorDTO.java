@@ -16,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class AuthorDTO {
 
+    private String id;
 
     @NotNull(message = "Please enter user type")
     private UserType userType;

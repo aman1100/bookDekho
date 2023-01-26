@@ -25,9 +25,10 @@ public class ReaderRestController {
         return new ResponseEntity<>(readerDTO, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/updateReader/{readerId}")
-    public ResponseEntity<ReaderDTO> updateReader(@PathVariable String readerId, @RequestBody ReaderDTO readerDTO){
-        readerDTO = readerService.updateReader(readerId, readerDTO);
+    @PatchMapping(value = "/updateReader")
+    public ResponseEntity<ReaderDTO> updateReader(@RequestBody ReaderDTO readerDTO){
+        //id attribute in readerDTO is mandatory while update
+        readerDTO = readerService.updateReader(readerDTO);
         return new ResponseEntity<>(readerDTO, HttpStatus.OK);
     }
 

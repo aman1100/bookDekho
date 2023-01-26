@@ -12,6 +12,8 @@ import java.time.Instant;
 @AllArgsConstructor
 public class BookReviewDTO {
 
+    private String id;
+
     @NotBlank(message = "Please enter aboutBook Id")
     private String aboutBookId; //reference of about book model
     @NotEmpty

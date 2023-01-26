@@ -28,8 +28,8 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public AuthorDTO updateAuthor(String authorId, AuthorDTO authorDTO) {
-        Author author = authorRepository.findById(authorId).orElseThrow(EntityNotFoundException:: new);
+    public AuthorDTO updateAuthor(AuthorDTO authorDTO) {
+        Author author = authorRepository.findById(authorDTO.getId()).orElseThrow(EntityNotFoundException:: new);
         BeanUtils.copyProperties(authorDTO,author);
         authorRepository.save(author);
         BeanUtils.copyProperties(author, authorDTO);

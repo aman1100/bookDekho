@@ -10,7 +10,7 @@ public interface AuthorService {
 
     AuthorDTO addAuthor(AuthorDTO authorDTO);
 
-    AuthorDTO updateAuthor(String userId, AuthorDTO authorDTO);
+    AuthorDTO updateAuthor(AuthorDTO authorDTO);
 
     AuthorDTO getAuthorById(String authorId);
 

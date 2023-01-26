@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public interface ReaderService {
     ReaderDTO addReader(ReaderDTO readerDTO);
 
-    ReaderDTO updateReader(String readerId, ReaderDTO readerDTO);
+    ReaderDTO updateReader(ReaderDTO readerDTO);
 
     ReaderDTO getReaderById(String readerId);
 
