@@ -23,13 +23,13 @@ public class UserRestController{
         return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping(value = "/updateUser/{id}")
+    @PatchMapping(value = "/updateUser/{userId}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable String userId, @RequestBody UserDTO userDTO){
         userDTO = userService.updateUser(userId, userDTO);
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 
-    @GetMapping(value = "getUser/{id}")
+    @GetMapping(value = "getUser/{userId}")
     public ResponseEntity<UserDTO> getUserById(@PathVariable String userId){
         UserDTO userDTO = userService.getUserById(userId);
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
@@ -42,7 +42,7 @@ public class UserRestController{
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/deleteUser/{id}")
+    @DeleteMapping(value = "/deleteUser/{userId}")
     public ResponseEntity<String> deleteUser(@PathVariable String userId){
         userService.deleteUserById(userId);
         return ResponseEntity.status(HttpStatus.OK)

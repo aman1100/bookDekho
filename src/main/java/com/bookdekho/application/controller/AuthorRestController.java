@@ -23,12 +23,12 @@ public class AuthorRestController {
         return new ResponseEntity<>(authorDTO, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/updateAuthor/{id}")
+    @PatchMapping(value = "/updateAuthor/{authorId}")
     public ResponseEntity<AuthorDTO> updateAuthor(@PathVariable String authorId, @RequestBody AuthorDTO authorDTO){
         authorDTO = authorService.updateAuthor(authorId, authorDTO);
         return new ResponseEntity<>(authorDTO, HttpStatus.OK);
     }
-    @GetMapping(value = "getAuthor/{id}")
+    @GetMapping(value = "getAuthor/{authorId}")
     public ResponseEntity<AuthorDTO> getAuthorById(@PathVariable String authorId){
         AuthorDTO authorDTO = authorService.getAuthorById(authorId);
         return new ResponseEntity<>(authorDTO, HttpStatus.OK);
@@ -41,17 +41,12 @@ public class AuthorRestController {
         return new ResponseEntity<>(authors, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/deleteAuthor/{id}")
+    @DeleteMapping(value = "/deleteAuthor/{authorId}")
     public ResponseEntity<String> deleteAuthor(@PathVariable String authorId){
         authorService.deleteAuthorById(authorId);
         return ResponseEntity.status(HttpStatus.OK)
                 .body(AUTHOR_DELETED);
     }
 
-    @GetMapping(value = "/checkAuthorExists/{email}")
-    public ResponseEntity<Boolean> checkAuthorExists(@PathVariable String email){
-        Boolean authorExists = authorService.checkAuthorExists(email);
-        return new ResponseEntity<>(authorExists, HttpStatus.OK);
-    }
 
 }

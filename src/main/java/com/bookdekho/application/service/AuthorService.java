@@ -3,7 +3,9 @@ package com.bookdekho.application.service;
 import com.bookdekho.application.dto.AuthorDTO;
 import com.bookdekho.application.model.Author;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface AuthorService {
 
     AuthorDTO addAuthor(AuthorDTO authorDTO);
@@ -16,5 +18,4 @@ public interface AuthorService {
 
     void deleteAuthorById(String authorId);
 
-    Boolean checkAuthorExists(String email);
 }

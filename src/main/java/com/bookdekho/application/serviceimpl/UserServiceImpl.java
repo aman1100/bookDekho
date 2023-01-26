@@ -10,9 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+
+@Component
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -22,7 +23,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO addUser(UserDTO userDTO) {
         User user = new User();
         BeanUtils.copyProperties(userDTO,user);
-        userRepository.insert(user);
+        userRepository.save(user);
         BeanUtils.copyProperties(user,userDTO);
         return userDTO;
     }

@@ -10,9 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 public class AuthorServiceImpl implements AuthorService {
 
     @Autowired
@@ -55,8 +55,4 @@ public class AuthorServiceImpl implements AuthorService {
         authorRepository.deleteById(authorId);
     }
 
-    @Override
-    public Boolean checkAuthorExists(String email) {
-        return authorRepository.existsByEmail(email);
-    }
 }
