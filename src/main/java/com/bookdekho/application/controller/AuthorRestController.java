@@ -23,9 +23,10 @@ public class AuthorRestController {
         return new ResponseEntity<>(authorDTO, HttpStatus.OK);
     }
 
-    @PatchMapping(value = "/updateAuthor/{authorId}")
-    public ResponseEntity<AuthorDTO> updateAuthor(@PathVariable String authorId, @RequestBody AuthorDTO authorDTO){
-        authorDTO = authorService.updateAuthor(authorId, authorDTO);
+    @PatchMapping(value = "/updateAuthor")
+    public ResponseEntity<AuthorDTO> updateAuthor( @RequestBody AuthorDTO authorDTO){
+        //id attribute in authorDto is mandatory while update
+        authorDTO = authorService.updateAuthor(authorDTO);
         return new ResponseEntity<>(authorDTO, HttpStatus.OK);
     }
     @GetMapping(value = "getAuthor/{authorId}")

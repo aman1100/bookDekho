@@ -17,6 +17,8 @@ import java.util.Set;
 @AllArgsConstructor
 public class AboutBookDTO {
 
+    private String id;
+
     @NotBlank(message = "Please enter author Id")
     private String authorId;
 

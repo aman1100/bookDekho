@@ -23,9 +23,10 @@ public class UserRestController{
         return new ResponseEntity<>(userDTO, HttpStatus.ACCEPTED);
     }
 
-    @PatchMapping(value = "/updateUser/{userId}")
-    public ResponseEntity<UserDTO> updateUser(@PathVariable String userId, @RequestBody UserDTO userDTO){
-        userDTO = userService.updateUser(userId, userDTO);
+    @PatchMapping(value = "/updateUser")
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO){
+        //id attribute in userDTO is mandatory while update
+        userDTO = userService.updateUser(userDTO);
         return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 

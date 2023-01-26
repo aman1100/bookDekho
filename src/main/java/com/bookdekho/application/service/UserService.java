@@ -1,6 +1,7 @@
 package com.bookdekho.application.service;
 
 import com.bookdekho.application.dto.UserDTO;
+import com.bookdekho.application.model.LoginDTO;
 import com.bookdekho.application.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 public interface UserService {
     UserDTO addUser(UserDTO userDTO);
 
-    UserDTO updateUser(String userId, UserDTO userDTO);
+    UserDTO updateUser(UserDTO userDTO);
 
     UserDTO getUserById(String userId);
 
@@ -18,4 +19,6 @@ public interface UserService {
     void deleteUserById(String userId);
 
     Boolean checkUserExists(String emailId);
+
+    String authenticateUser(LoginDTO loginDTO);
 }
