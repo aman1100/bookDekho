@@ -16,6 +16,7 @@ public class Author {
     @Id
     private String id;
 
+    private String userId;
     private UserType userType;
     private Set<Genre> preferences;//book preference/genre of author
     private OnlineLinks onlineLinks;//online links like linkedIn, twitter

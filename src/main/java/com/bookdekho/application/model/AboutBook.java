@@ -18,6 +18,7 @@ public class AboutBook {
     private String id;
 
     private String authorId;
+    private String userId;
     private Set<String> bookCoverUrl;//set of book cover images
     private Set<String> authorImages;//set of author images urls
     private String bookName;

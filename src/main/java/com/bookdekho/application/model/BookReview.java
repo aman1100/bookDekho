@@ -15,6 +15,7 @@ public class BookReview {
     @Id
     private String id;
     private String aboutBookId; //reference of about book model
+    private String userId;
     private String review; //book review
     private Integer reviewInStars;
     private Integer preferredAge;
