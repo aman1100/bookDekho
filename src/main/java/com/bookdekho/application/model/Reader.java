@@ -16,6 +16,7 @@ public class Reader {
     @Id
     private String id;
 
+    private String userId;
     private UserType userType;
     private Set<Genre> preferences;//reader book preference/genre
     private Set<String> bookReviewed;//reference of reviews by user

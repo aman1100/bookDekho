@@ -4,18 +4,24 @@ import com.bookdekho.application.enums.BookVersion;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.NumberFormat;
 
 import java.time.Instant;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class BookReviewDTO {
 
     private String id;
 
     @NotBlank(message = "Please enter aboutBook Id")
     private String aboutBookId; //reference of about book model
+
+    @NotBlank(message = "Please enter author Id")
+    private String userId;//reference of author
+
     @NotEmpty
     @NotBlank
     @Size(min = 20, message = "Review should contain 20 characters")

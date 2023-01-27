@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.NumberFormat;
 
 import java.time.Instant;
@@ -15,6 +16,7 @@ import java.util.Set;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class AboutBookDTO {
 
     private String id;
@@ -22,8 +24,11 @@ public class AboutBookDTO {
     @NotBlank(message = "Please enter author Id")
     private String authorId;
 
+    @NotBlank(message = "Please enter user id")
+    private String userId;
+
     @NotEmpty
-    @Size(min = 1, message = "Please provide atleast one book cover")
+    @Size(min = 1, message = "Please provide at least one book cover")
     private Set<String> bookCoverUrl;//set of book cover images
 
     private Set<String> authorImages;//set of author images urls , optional

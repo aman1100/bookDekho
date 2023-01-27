@@ -18,6 +18,9 @@ public class AuthorDTO {
 
     private String id;
 
+    @NotBlank(message = "Please enter user id")
+    private String userId;
+
     @NotNull(message = "Please enter user type")
     private UserType userType;
 
@@ -27,7 +30,6 @@ public class AuthorDTO {
 
     private Set<String> authorImages; //set of author images urls
 
-    @Size(min = 1, message = "Please upload atleast one of your book insights")
     private Set<String> aboutBooks; //reference of author published book
 
     private Set<String> bookReviewed; //reference of reviews by user
