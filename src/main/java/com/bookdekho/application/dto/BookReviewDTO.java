@@ -1,6 +1,7 @@
 package com.bookdekho.application.dto;
 
 import com.bookdekho.application.enums.BookVersion;
+import com.bookdekho.application.enums.Genre;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +20,15 @@ public class BookReviewDTO {
     @NotBlank(message = "Please enter aboutBook Id")
     private String aboutBookId; //reference of about book model
 
+    @NotBlank(message = "Please enter Book Name")
+    private String bookName;
+
+    @NotBlank(message = "Please enter Genre")
+    private Genre genre;
+
+    @NotBlank(message = "Please enter Author Name")
+    private String authorName;
+
     @NotBlank(message = "Please enter author Id")
     private String userId;//reference of author
 
@@ -32,7 +42,7 @@ public class BookReviewDTO {
     @Min(value = 1,message = "review should be in 1 to 5")
     private Integer reviewInStars;
 
-    private Integer preferredAge; //optional
+//    private Integer preferredAge; //optional
 
     private String authorReview;//optional
 

@@ -7,6 +7,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.NumberFormat;
 
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -25,6 +28,8 @@ public class UserDTO {
     @NotEmpty
     @Size(min = 2, message = "Last name should have at least 2 characters")
     private String lastName;
+
+    private String fullName;
 
     @NotNull(message="Please enter your Age")
     @NumberFormat(style = NumberFormat.Style.NUMBER)
@@ -45,4 +50,10 @@ public class UserDTO {
     private String phoneNumber;
     private String authorId;
     private String readerId;
+
+    public String getFullName(String firstName, String middleName, String lastName) {
+        return Stream.of(firstName, middleName, lastName)
+                .filter(name -> name != null && !name.isEmpty())
+                .collect(Collectors.joining(" "));
+    }
 }

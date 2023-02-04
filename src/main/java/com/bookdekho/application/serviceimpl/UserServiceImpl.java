@@ -29,6 +29,8 @@ public class UserServiceImpl implements UserService {
     public UserDTO addUser(UserDTO userDTO) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         String encryptedPassword = bCryptPasswordEncoder.encode(userDTO.getPassword());
+        String fullName = userDTO.getFullName(userDTO.getFirstName(), userDTO.getMiddleName(), userDTO.getLastName());
+        userDTO.setFullName(fullName);
         userDTO.setPassword(encryptedPassword);
 
         User user = new User();
@@ -41,6 +43,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO updateUser(UserDTO userDTO) {
         User user = userRepository.findById(userDTO.getId()).orElseThrow(EntityNotFoundException :: new);
+        String fullName = userDTO.getFullName(userDTO.getFirstName(), userDTO.getMiddleName(), userDTO.getLastName());
+        userDTO.setFullName(fullName);
         BeanUtils.copyProperties(userDTO,user);
         userRepository.save(user);
         BeanUtils.copyProperties(user,userDTO);
